@@ -35,6 +35,13 @@ class User
      */
     private $email;
 
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="pass", type="string", length=255, unique=true)
+     */
+    private $pass;
+
     /**
      * @var bool
      *
@@ -99,6 +106,30 @@ class User
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set pass
+     *
+     * @param string $pass
+     *
+     * @return User
+     */
+    public function setPass($pass)
+    {
+        $this->pass = $pass;
+
+        return $this;
+    }
+
+    /**
+     * Get pass
+     *
+     * @return string
+     */
+    public function getPass()
+    {
+        return $this->pass;
     }
 
     /**

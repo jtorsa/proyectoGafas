@@ -3,7 +3,7 @@ namespace UserBundle\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use GafasBundle\Entity\User;
+use UserBundle\Entity\User;
 use Faker\Factory;
 class UserFixtures extends Fixture
 
@@ -15,7 +15,8 @@ class UserFixtures extends Fixture
         for($i=0;$i<10;$i++){
         $user = new User();
         $user->setName($faker->firstNameFemale());
-        $user->setMail($faker->unique()->email);
+        $user->setEmail($faker->unique()->email);
+        $user->setPass($faker->password());
         if($i===0){
             $user->setAdmin(1);
         }else{
