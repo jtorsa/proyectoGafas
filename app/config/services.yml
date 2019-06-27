@@ -33,3 +33,13 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    GafasBundle\DataFixtures\:
+       resource: '../../src/GafasBundle/DataFixtures/'
+     # add more services, or override services that need manual wiring
+    # AppBundle\Service\ExampleService:
+    #     arguments:
+    #         $someArgument: 'some_value'
+    UserBundle\DataFixtures\:
+       resource: '../../src/UserBundle/DataFixtures/'
+    
+    
