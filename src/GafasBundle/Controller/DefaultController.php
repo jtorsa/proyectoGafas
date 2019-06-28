@@ -32,4 +32,15 @@ class DefaultController extends Controller
         $gafas = $repository->findAll();
         return $this->render('@Gafas/Default/index.html.twig',['gafas'=>$gafas]);
     }
+
+    /**
+     * @Route("/detail/{id}")
+     */
+    public function getPostById($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repository= $em->getRepository("GafasBundle:Gafas");
+        $gafa = $repository->find($id);
+        return $this->render('@Gafas/Default/detail.html.twig',['gafa'=>$gafa]);
+    }
 }

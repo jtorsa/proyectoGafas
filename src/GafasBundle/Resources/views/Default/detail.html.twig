@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Gafas{% endblock %}
+{%block style%}
+ {%endblock%}
+{%block  header%}
+    <div class="header"> Esto es el header de las gafas</div>
+{%endblock%}
+{% block body %}
+    <h1>{{ gafa.model }}</h1>
+    <p> {{ gafa.category }}</p>
+ {% endblock %}
+{%block footer%}
+    <footer>Esto es el footer</footer>      
+{%endblock%}
