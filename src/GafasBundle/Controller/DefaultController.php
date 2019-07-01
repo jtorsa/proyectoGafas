@@ -25,12 +25,15 @@ class DefaultController extends Controller
      * @Route("/getAll")
      */
     public function getAllAction(){
-
+        try{
         //Recuperar el Manager
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('GafasBundle:Gafas');
         $gafas = $repository->findAll();
         return $this->render('@Gafas/Default/index.html.twig',['gafas'=>$gafas]);
+        }catch(Exception $e){
+            return $e->getMessage();
+        }
     }
 
     /**

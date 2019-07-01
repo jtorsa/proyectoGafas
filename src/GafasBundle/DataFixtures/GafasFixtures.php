@@ -17,6 +17,8 @@ class GafasFixtures extends Fixture
         $gafa->setModel($faker->unique()->word);
         $gafa->setCategory($faker->word());
         $gafa->setPrice($faker->randomFloat($nbMaxDecimals = 2, $min = 10, $max = 30));
+        $gafa->setImage("gafa".$i.".jpg");
+
         
         $manager->persist($gafa);
         $manager->flush();

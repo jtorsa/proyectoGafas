@@ -29,8 +29,21 @@
         .card{
             margin: 0.5em;
             background-color:blueviolet;
-            width: 35vh;
-            height: 13em;
+            width: 30vh;
+            height: 45vh;
+        }
+        .imagen{
+            height: 20vh;
+            width: 20vh;
+            
+            padding: 0.2em;
+        }
+        img{
+            height: 100%;
+            width: 100%;
+            border-width: 0.3em;
+            border-color: grey;
+            border-style: solid;
         }
         
 
@@ -56,6 +69,9 @@
                         </div>
                     <div class="card-body">
                         <blockquote class="blockquote mb-0">
+                        <div class="imagen">
+                            <img src="../img/{{gafa.image}}"> 
+                        </div>
                         <p>{{ gafa.category}} </p>
                         <p>{{ gafa.price}}€</p>
                     </blockquote>

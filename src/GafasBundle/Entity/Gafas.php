@@ -35,6 +35,14 @@ class Gafas
      */
     private $category;
 
+      /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255)
+     */
+    private $image;
+
+
     /**
      * @var float
      *
@@ -99,6 +107,30 @@ class Gafas
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set category
+     *
+     * @param string $category
+     *
+     * @return Gafas
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 
     /**
