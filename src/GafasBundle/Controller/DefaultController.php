@@ -30,7 +30,9 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('GafasBundle:Gafas');
         $gafas = $repository->findAll();
-        return $this->render('@Gafas/Default/index.html.twig',['gafas'=>$gafas]);
+        $repository2= $em->getRepository('GafasBundle:Categoria');
+        $categorias = $repository2->findAll();
+        return $this->render('@Gafas/Default/index.html.twig',['gafas'=>$gafas,'categorias'=>$categorias]);
         }catch(Exception $e){
             return $e->getMessage();
         }

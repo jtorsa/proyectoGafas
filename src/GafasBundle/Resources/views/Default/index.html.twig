@@ -14,11 +14,13 @@
             height: 15vh;
         }
         .menu{
-            background-color: yellowgreen;
+            background-color: white;
             width: 20%;
+            color:grey;
+
             }
         .main{
-            background-color: tomato;
+            background-color: grey;;
             width: 80%;
             flex: 1;
         }
@@ -38,6 +40,13 @@
             
             padding: 0.2em;
         }
+        .menu-head{
+            width:100%;
+            height:10vh;
+            font-size:1.5em;
+            background-color:#FF5733;
+            color:white;
+        }
         img{
             height: 100%;
             width: 100%;
@@ -45,12 +54,16 @@
             border-color: grey;
             border-style: solid;
         }
-        
-
+        .menu-cat{
+            text-align:center;
+            padding:2vh;
+        }
 	footer{
 	    background-color: aqua;
-	    
 		}
+        .promo{
+            display:flex;
+        }
     </style>
 {%endblock%}
 {%block  header%}
@@ -58,10 +71,35 @@
 {%endblock%}
 {% block body %}
                <div class="box">
-            <div class="menu">Menu</div>
+            <div class="menu">
+                <div class="menu-head">
+                     Esto es el menú
+                </div>
+                <div class="menu-body">
+                {% for categoria in categorias %}
+                     <div class="menu-cat">
+                     <a href="detail/{{categoria.id}}">
+                        GAFAS GEEK {{categoria.name}}</a>
+                    </div>
+                 {%endfor%}
+                </div>
+                
+            </div>
             <div class="main">
                 <div class="main-head"><h1>Catalogo de Gafas</h1></div>
+                 <div class="promo">
+                        <div class="ofertas">
+                            ofertas
+                        </div>
+                        <div class="novedades">
+                            novedades
+                        </div>
+                        <div class="promociones">
+                            promociones
+                        </div>
+                    </div>
                 <div class="main-body">
+                  
                     {% for gafa in gafas %}
                     <div class="card">
                         <div class="card-header">
@@ -70,7 +108,8 @@
                     <div class="card-body">
                         <blockquote class="blockquote mb-0">
                         <div class="imagen">
-                            <img src="../img/{{gafa.image}}"> 
+                        <a href="detail/{{gafa.id}}">
+                            <img src="../img/{{gafa.image}}" ></a>
                         </div>
                         <p>{{ gafa.category}} </p>
                         <p>{{ gafa.price}}€</p>
