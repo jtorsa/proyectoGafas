@@ -28,6 +28,19 @@ class Categoria
      */
     private $name;
 
+    /**
+     * Add gafas
+     *
+     * @param \GafasBundle\Entity\Gafas $gafa
+     *
+     * @return Categoria
+     */
+    public function addGafa(\GafasBundle\Entity\Gafas $gafa)
+    {
+        $this->gafas[] = $gafa;
+
+        return $this;
+    }
 
     /**
      * Get id

@@ -28,12 +28,6 @@ class Gafas
      */
     private $model;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="category", type="string", length=255)
-     */
-    private $category;
 
       /**
      * @var string
@@ -50,6 +44,11 @@ class Gafas
      */
     private $price;
 
+    /**
+     *@ORM\ManyToOne(targetEntity="Categoria", inversedBy="gafas")
+     *@ORM\JoinColumn(name="categoria", referencedColumnName="id") 
+     */
+    private $categoria;
 
     /**
      * Get id
@@ -86,33 +85,33 @@ class Gafas
     }
 
     /**
-     * Set category
+     * Set categoria
      *
-     * @param string $category
+     * @param int $categoria
      *
      * @return Gafas
      */
-    public function setCategory($category)
+    public function setCategoria($categoria)
     {
-        $this->category = $category;
+        $this->categoria = $categoria;
 
         return $this;
     }
 
     /**
-     * Get category
+     * Get categoria
      *
-     * @return string
+     * @return int
      */
-    public function getCategory()
+    public function getCategoria()
     {
-        return $this->category;
+        return $this->categoria;
     }
 
     /**
-     * Set category
+     * Set image
      *
-     * @param string $category
+     * @param string $image
      *
      * @return Gafas
      */
@@ -124,7 +123,7 @@ class Gafas
     }
 
     /**
-     * Get category
+     * Get image
      *
      * @return string
      */
