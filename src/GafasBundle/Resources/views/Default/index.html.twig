@@ -64,6 +64,13 @@
         .promo{
             display:flex;
         }
+        #shape {
+  -webkit-clip-path: polygon(0 55%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 55%, 100% 0%, 100% 100%, 0% 100%);
+  width:200px;
+  height:200px;
+  background-color:black;
+}
     </style>
 {%endblock%}
 {%block  header%}
@@ -97,7 +104,9 @@
                         <div class="promociones">
                             promociones
                         </div>
-                    </div>
+                </div>
+                <div id='shape'></div>
+
                 <div class="main-body">
                   
                     {% for gafa in gafas %}
