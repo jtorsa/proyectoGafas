@@ -11,18 +11,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     private $em;
-
-    /**
-     * @Route("/")
-     */
-    public function indexAction()
-    {
-        return $this->render('@Gafas/Default/index.html.twig');
-    }
     
 
     /**
-     * @Route("/getAll")
+     * @Route("/")
      */
     public function getAllAction(){
         try{

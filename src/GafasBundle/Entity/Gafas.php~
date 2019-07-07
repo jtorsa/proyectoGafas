@@ -44,10 +44,9 @@ class Gafas
      */
     private $price;
 
-
-     /**
-     * @ORM\ManyToOne(targetEntity="Categoria", inversedBy="gafas")
-     * @ORM\JoinColumn(name="categoria", referencedColumnName="id")
+    /**
+     *@ORM\ManyToOne(targetEntity="Categoria", inversedBy="gafas")
+     *@ORM\JoinColumn(name="categoria", referencedColumnName="id") 
      */
     private $categoria;
 
@@ -157,3 +156,4 @@ class Gafas
         return $this->price;
     }
 }
+

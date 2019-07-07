@@ -76,19 +76,5 @@ class Categoria
     {
         return $this->name;
     }
-
-    /**
-     * @ORM\OneToMany(targetEntity="Gafas", mappedBy="categoria")
-     */
-    private $gafas;
-
-    public function __construct()
-    {
-        $this->gafas = new ArrayCollection();
-    }
-
-    public function __toString(){
-
-        return $this->name;
-    }
 }
+
