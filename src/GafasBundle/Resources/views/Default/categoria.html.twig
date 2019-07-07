@@ -85,7 +85,7 @@
                 <div class="menu-body">
                 {% for categoria in categorias %}
                      <div class="menu-cat">
-                     <a href="categoria/{{categoria.id}}">
+                     <a href="{{categoria.id}}">
                         GAFAS GEEK {{categoria.name}}</a>
                     </div>
                  {%endfor%}
@@ -93,7 +93,7 @@
                 
             </div>
             <div class="main">
-                <div class="main-head"><h1>Catalogo de Gafas</h1></div>
+                <div class="main-head"><h1>Categoria: {{gafas[0].categoria}}</h1></div>
                  <div class="promo">
                         <div class="ofertas">
                             ofertas
@@ -118,7 +118,7 @@
                         <blockquote class="blockquote mb-0">
                         <div class="imagen">
                         <a href="detail/{{gafa.id}}">
-                            <img src="../img/{{gafa.image}}" ></a>
+                            <img src="../../img/{{gafa.image}}" ></a>
                         </div>
                         <p>{{ gafa.price}}€</p>
                          <p>{{ gafa.categoria}}</p>

@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
     
     /**
-     * @Route("/categoria")
+     * @Route("gafas/categoria")
      */
 class CategoriaController extends Controller
 {
@@ -17,10 +17,16 @@ class CategoriaController extends Controller
     public function getGafas($id)
     {
         $em = $this->getDoctrine()->getManager();
+
         $repository= $em->getRepository('GafasBundle:Categoria');
         $categoria = $repository->find($id);
-        return $this->render('@Gafas/Default/index.html.twig',['gafas'=>$categoria->getGafas()]);
+        
+        $repository2= $em->getRepository('GafasBundle:Categoria');
+        $categorias = $repository2->findAll();
+
+        return $this->render('@Gafas/Default/categoria.html.twig',['gafas'=>$categoria->getGafas(),'categorias'=>$categorias]);
     }
+    
 
 
 }

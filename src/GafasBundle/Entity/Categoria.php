@@ -87,6 +87,16 @@ class Categoria
         $this->gafas = new ArrayCollection();
     }
 
+    /**
+     * Get gafas
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGafas()
+    {
+        return $this->gafas;
+    }
+
     public function __toString(){
 
         return $this->name;
