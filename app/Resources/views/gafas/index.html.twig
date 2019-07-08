@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Gafas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Model</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for gafa in gafas %}
+            <tr>
+                <td><a href="{{ path('gafas_show', { 'id': gafa.id }) }}">{{ gafa.id }}</a></td>
+                <td>{{ gafa.model }}</td>
+                <td>{{ gafa.image }}</td>
+                <td>{{ gafa.price }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('gafas_show', { 'id': gafa.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('gafas_edit', { 'id': gafa.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('gafas_new') }}">Create a new gafa</a>
+        </li>
+    </ul>
+{% endblock %}

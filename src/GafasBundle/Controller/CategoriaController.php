@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
     
     /**
-     * @Route("gafas/categoria")
+     * @Route("/categoria")
      */
 class CategoriaController extends Controller
 {

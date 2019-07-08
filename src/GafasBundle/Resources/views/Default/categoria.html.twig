@@ -85,7 +85,7 @@
                 <div class="menu-body">
                 {% for categoria in categorias %}
                      <div class="menu-cat">
-                     <a href="{{categoria.id}}">
+                     <a href="/categoria/{{categoria.id}}">
                         GAFAS GEEK {{categoria.name}}</a>
                     </div>
                  {%endfor%}
@@ -117,7 +117,7 @@
                     <div class="card-body">
                         <blockquote class="blockquote mb-0">
                         <div class="imagen">
-                        <a href="detail/{{gafa.id}}">
+                        <a href="/detail/{{gafa.id}}">
                             <img src="../../img/{{gafa.image}}" ></a>
                         </div>
                         <p>{{ gafa.price}}€</p>

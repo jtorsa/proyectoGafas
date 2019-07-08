@@ -3,6 +3,8 @@
 namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -24,9 +26,22 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255, unique=true)
+     * @ORM\Column(name="username", type="string", length=255, unique=true)
      */
-    private $name;
+    private $username;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=512)
+     */
+    private $password;
+
+      /**
+     *
+     * @Assert\Length(max=4096)
+     */
+    private $plainPassword;
 
     /**
      * @var string
@@ -35,19 +50,12 @@ class User
      */
     private $email;
 
-     /**
-     * @var string
-     *
-     * @ORM\Column(name="pass", type="string", length=255, unique=true)
-     */
-    private $pass;
-
     /**
-     * @var bool
+     * @var array
      *
-     * @ORM\Column(name="admin", type="boolean")
+     * @ORM\Column(name="roles", type="array")
      */
-    private $admin;
+    private $roles;
 
 
     /**
@@ -61,27 +69,51 @@ class User
     }
 
     /**
-     * Set name
+     * Set username
      *
-     * @param string $name
+     * @param string $username
      *
      * @return User
      */
-    public function setName($name)
+    public function setUsername($username)
     {
-        $this->name = $name;
+        $this->username = $username;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get username
      *
      * @return string
      */
-    public function getName()
+    public function getUsername()
     {
-        return $this->name;
+        return $this->username;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     *
+     * @return User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
     }
 
     /**
@@ -109,51 +141,62 @@ class User
     }
 
     /**
-     * Set pass
+     * Set roles
      *
-     * @param string $pass
+     * @param array $roles
      *
      * @return User
      */
-    public function setPass($pass)
+    public function setRoles($roles)
     {
-        $this->pass = $pass;
+        $this->roles = $roles;
 
         return $this;
     }
 
     /**
-     * Get pass
+     * Get roles
+     *
+     * @return array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+    public function eraseCredentials()
+    {
+
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     *
+     * @return User
+     */
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
      *
      * @return string
      */
-    public function getPass()
+    public function getPlainPassword()
     {
-        return $this->pass;
-    }
-
-    /**
-     * Set admin
-     *
-     * @param boolean $admin
-     *
-     * @return User
-     */
-    public function setAdmin($admin)
-    {
-        $this->admin = $admin;
-
-        return $this;
-    }
-
-    /**
-     * Get admin
-     *
-     * @return bool
-     */
-    public function getAdmin()
-    {
-        return $this->admin;
+        return $this->plainPassword;
     }
 }
-

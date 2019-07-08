@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
     
     /**
-     * @Route("/gafas")
+     * @Route("/")
      */
 class DefaultController extends Controller
 {
@@ -14,7 +14,7 @@ class DefaultController extends Controller
     
 
     /**
-     * @Route("/")
+     * @Route("/", name="homepage")
      */
     public function getAllAction(){
         try{
@@ -40,7 +40,7 @@ class DefaultController extends Controller
     /**
      * @Route("/detail/{id}")
      */
-    public function getPostById($id)
+    public function getGafaById($id)
     {
         $em = $this->getDoctrine()->getManager();
         $repository= $em->getRepository("GafasBundle:Gafas");
