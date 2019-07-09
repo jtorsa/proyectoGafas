@@ -1,17 +1,89 @@
 {% extends "base.html.twig" %}
 
 {% block title %}Gafas{% endblock %}
-{%block style%}
- {%endblock%}
-{%block  header%}
+{% block style %}
+     <style type="text/css">
+        .box{
+            display: flex;
+            background-color:#B2B2B2;
+            align-content:center;
+            padding:10vh;
+        }
+        .image{
+
+        }
+        .datos{
+            margin:1em;
+            flex:1;
+        }
+        .datos-precio{
+            background-color:white;
+        }
+        .compra{
+            background-color:white;    
+        }
+        .marca{
+            background-color:white;
+            margin:0,5vh;
+        }
+        .precio{
+            color:red;
+        }
+        .opina{
+            font-size:0.7em;
+            color:grey;
+        }
+        .red{
+            color:red;
+        }
+        .comprar{
+            background-color:red;
+            color:white;
+        }
+        .añadir{
+            border-style:solid;
+            border-color:grey;
+            color:grey;
+            border-width:3px;
+        }
+
+    </style>
+ {% endblock %}
+{% block  header %}
     <div class="header"> Esto es el header de las gafas</div>
-{%endblock%}
+{% endblock %}
 {% block body %}
-    <h1>{{ gafa.model }}</h1>
-    <p> {{ gafa.categoria }}</p>
-    <div>
-        <img src="../../img/{{gafa.image}}" >
+    <div class="box">
+        <div class="image">
+            <div>
+                <img src="../../img/{{gafa.image}}" >
+            </div>
+        </div>
+        <div class="datos">
+            <div class="datos-precio">
+                <h1>{{ gafa.model }}</h1>
+                <h3 class="precio">{{ gafa.price }}€</h3>
+                <p> {{ gafa.categoria }}</p>
+                <p class="opina">Opina | Review </p>
+            </div>
+            <div class="marca">
+                <p>Marca:       Gafas Geek{{gafa.model}}/Cod. Articulo:{{gafa.id}}</p>
+                <p>Envío:       Desde 10€ - <b class="red">GRATIS con GEEK PREMIUM</b></p>
+                <p>Financiación: <b>6, 12, 20 y 30 meses</b></p>
+            </div>
+            <div class="compra">
+                <div class="corazon">
+                    <i class="fa fa-heart-o"></i>
+                </div>
+                <div class="añadir">
+                    Añadir al carrito
+                </div>
+                <div class="comprar"><b>COMPRAR</b></div>
+            </div>
+        </div>
     </div>
+    
+    
  {% endblock %}
 {%block footer%}
     <footer>Esto es el footer</footer>      
