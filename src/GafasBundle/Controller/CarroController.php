@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 class CarroController extends Controller
 {   
     /**
-     * @Route("/{user}")
+     * @Route("/{user}", name="hoal")
      */
     public function indexAction($user)
     {
@@ -25,18 +25,24 @@ class CarroController extends Controller
         and c.user = :user')->setParameter('user', $user);
         $carros= $query->getResult();
 
+        $query2 = $em->createQuery('SELECT  g
+        FROM GafasBundle:Gafas g
+        where g.id NOT IN (
+        Select  c.producto
+        from GafasBundle:Carro as  c
+        where c.user= :user)')->setParameter('user', $user);
+        $query2->setMaxResults(3);
+        $productos = $query2->getResult();
         $long= count($carros);
         
-        dump($carros);
-        dump($long);
         return $this->render('@Gafas/Carro/index.html.twig', array(
-            'carros'=>$carros, 'total'=>0
+            'carros'=>$carros, 'total'=>0,'counter'=>$long,'productos'=>$productos
         ));
         
     }
 
     /**
-     * @Route("/add/{id}/{user}")
+     * @Route("/add/{id}/{user}" , name="añadir")
      */
     public function addAction($id,$user)
     {
@@ -56,8 +62,8 @@ class CarroController extends Controller
         $em->persist($carro);
         $em->flush();
         
-       
         return $this->indexAction($user);
+     
     
     }
 
@@ -98,6 +104,7 @@ class CarroController extends Controller
          
         $em->flush();
 
+   
         return $this->indexAction($user);
     }
 

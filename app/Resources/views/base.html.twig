@@ -4,11 +4,12 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="shortcut icon" href="">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="../img/glasses.png" />
-          {%block style%}
-          {%endblock%}
+          {% block style %}
+          {% endblock %}
     </head>
     <body>
         
@@ -27,15 +28,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Log In</a>
-      </li>
-      {% if app.user %}
-      <li class="nav-item">
-        <a class="nav-link" href="/carro/{{app.user.id}}">Carro</a>
-      </li>
-      {% endif %}
+      </li> 
+      
+     
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown
@@ -47,14 +42,18 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link " href="/registro">Registro</a>
-      </li>
+      
     </ul>
     {% if app.user %}
-
+    
+          <a class="nav-link" href="/carro/{{app.user.id}}">Carro</a>
+          <a class="nav-link" href="/logout">LogOut</a>
     {% else %}
     
+        <a class="nav-link" href="/login">Log In </a>
+         | 
+        <a class="nav-link " href="/registro"> Registro</a>
+
     {% endif %}
   </div>
 </nav>

@@ -1,33 +1,81 @@
 {% extends 'base.html.twig' %}
-
+{% block style %}
+ <style type="text/css">
+    body{
+        background:grey;
+       
+    }
+    .cesta{
+        background:white;
+        margin:3vh;
+        padding:1vh;
+        width:80vw;
+    }
+    thead{
+        background:grey;
+        width:100%;
+    }
+    #timage{
+        width:15vh;
+    }
+    #tdatos{
+        width:20vw;
+    }
+    #tprecio{
+        width:15vh;
+    }
+    #tunidades{
+        width:15vh;
+    }
+    #ttotal{
+        width:15vh;
+    }
+    #tborrar{
+        width:10vw;
+    }
+    #interes{
+        margin:2vh;
+        padding:1vw;
+    }
+    img{
+        width:10vw;
+    }
+    </style>
+ {% endblock %}
 {% block body %}
+<div class="cesta">
 {% if carros %}
-    <h1>Gafas list</h1>
 
+    <h3>
+        ({{counter}})Articulos en <b>tu cesta</b>
+    </h3>
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>product</th>
-                <th>usuario</th>
-                <th>cantidad</th>
-                <th>restar</th>
-                <th>borrar</th>
-                
+                <th id="timage">Articulo</th>
+                <th id="tdatos"> </th>         
+                <th id="tprecio">precio</th>
+                <th id="tunidades">unidades</th>
+                <th id="ttotal">total</th>
+                <th id="tborrar"></th>
             </tr>
         </thead>
         <tbody>
         {% for carro in carros %}
             <tr>
-                <td><a href="{{ path('gafas_show', { 'id': carro.id }) }}">{{ carro.id }}</a></td>
+                <td><img src="/img/{{carro.imagen}}" ></td>
                 <td>{{ carro.producto }}</td>
-                <td>{{ carro.user }}</td>
+                <td>{{ carro.price }}</td>
                 <td>{{ carro.cantidad }}</td>
-                <td>{{carro.cantidad * carro.price}}€</td>
-                <td><a href="/carro/less/{{carro.idp}}/{{app.user.id}}" >menos</a>
+                <td>
+                    <a href="/carro/less/{{carro.idp}}/{{app.user.id}}" ><i class="fa fa-minus"></i></a>
+                    {{carro.cantidad * carro.price}}€
+                    <a href="/carro/add/{{carro.idp}}/{{app.user.id}}" ><i class="fa fa-plus"></i></a>
+                </td>
                 <td><a href="/carro/delete/{{carro.idp}}/{{app.user.id}}" >Eliminar</a>    
             </tr>
             {% set total = total + carro.cantidad * carro.price %}
+            {% set counter = counter +1 %}
             
         {% endfor %}
             <tr>
@@ -35,12 +83,48 @@
                 <td>
                 <td>
                 <td>
-                <td>{{total}}
+                <td>{{total}}€
             </tr>
         </tbody>
     </table>
-<a href="/carro/limpiar/{{app.user.id}}">Limpiar Carro</a>
+    <div class="row">
+        <div class="col-md-3">
+            <a href="/carro/limpiar/{{app.user.id}}">Limpiar Carro</a>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <a href="/">Seguir comprando</a>
+        </div>
+
+    </div>
 {% else %}
     <h3>No hay ningun articulo en tu carrito</h3>
 {% endif %}
+</div>
+<div id="interes">
+    <p>
+        Puede que te interese
+    </p>
+    {% if productos %}
+    <div class="row">
+    {% for producto in productos %}
+        
+            <div class="col md-4">
+                <div class="row"><img src="/img/{{producto.image}}" ></div>
+                <div class="row">{{producto.price}}</div>
+                <div class="row">
+                        <a href="/carro/add/{{producto.id}}/{{app.user.id}}" >Añadir al carrito</a></div>
+                
+                <div class="row">Alternativas</div>
+            </div>        
+       
+        
+    {% endfor %}
+    </div>
+    {% endif %}
+</div>
+<div>
+
+</div>
 {% endblock %}
