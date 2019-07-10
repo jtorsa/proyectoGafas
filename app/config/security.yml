@@ -1,6 +1,7 @@
 # To get started with security, check out the documentation:
 # https://symfony.com/doc/current/security.html
 security:
+    access_denied_url: /login
     encoders:
         UserBundle\Entity\User: bcrypt
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
@@ -26,7 +27,10 @@ security:
                 check_path: login
             logout: true
     access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/, roles: [ ROLE_USER , ROLE_ADMIN] }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/registro, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/, roles: [ ROLE_USER , ROLE_ADMIN] }
-        - { path: ^/admin, roles: ROLE_ADMIN }
+        
+       
+        

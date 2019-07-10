@@ -18,10 +18,19 @@ class CarroController extends Controller
     public function indexAction($user)
     {
         $em = $this->getDoctrine()->getManager();
-        $carros = $em->getRepository('GafasBundle:Carro')
-        ->findBy(array('user'=>$user));
+        $query = $em->createQuery('SELECT c.id, g.model as producto, c.producto as idp,
+         g.price as price, c.cantidad as cantidad, c.user as user, g.image as imagen
+        FROM GafasBundle:Carro as  c, GafasBundle:Gafas g
+        where c.producto = g.id
+        and c.user = :user')->setParameter('user', $user);
+        $carros= $query->getResult();
+
+        $long= count($carros);
+        
+        dump($carros);
+        dump($long);
         return $this->render('@Gafas/Carro/index.html.twig', array(
-            'carros'=>$carros,
+            'carros'=>$carros, 'total'=>0
         ));
         
     }
@@ -47,19 +56,67 @@ class CarroController extends Controller
         $em->persist($carro);
         $em->flush();
         
-        return new Response("Ok");
-    
+       
+        return $this->indexAction($user);
     
     }
 
     /**
-     * @Route("/delete")
+     * @Route("/less/{id}/{user}")
      */
-    public function deleteAction()
+    public function lessAction($id,$user)
     {
-        return $this->render('GafasBundle:Carro:delete.html.twig', array(
-            // ...
-        ));
+
+        $em = $this->getDoctrine()->getManager();
+        $carro = $em->getRepository('GafasBundle:Carro')
+        ->findOneBy(array('producto' => $id,'user'=>$user));
+
+        if($carro->getCantidad()>1){
+            $carro->setCantidad($carro->getCantidad()-1);
+        }
+        else {
+            $em->remove($carro);
+             
+        }
+        $em->flush();
+
+        return $this->indexAction($user);
+    }
+
+
+     /**
+     * @Route("/delete/{id}/{user}")
+     */
+    public function deleteAction($id,$user)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $carro = $em->getRepository('GafasBundle:Carro')
+        ->findOneBy(array('producto' => $id,'user'=>$user));
+
+        $em->remove($carro);
+         
+        $em->flush();
+
+        return $this->indexAction($user);
+    }
+
+    /**
+     * @Route("/limpiar/{user}")
+     */
+    public function cleanAction($user)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $carro = $em->getRepository('GafasBundle:Carro')
+        ->findBy(array('user'=>$user));
+        $long= count($carro);
+        for($i=0;$i<$long;$i++){
+        $em->remove($carro[$i]);
+        }
+        $em->flush();
+
+        return $this->indexAction($user);
     }
 
 }

@@ -115,6 +115,7 @@ class Carro
         return $this->cantidad;
     }
 
+
     /**
      * Set user
      *
@@ -137,6 +138,30 @@ class Carro
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set price
+     *
+     * @param float $price
+     *
+     * @return Carro
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }
 

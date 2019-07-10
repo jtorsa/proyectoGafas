@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+{% if carros %}
     <h1>Gafas list</h1>
 
     <table>
@@ -10,6 +11,9 @@
                 <th>product</th>
                 <th>usuario</th>
                 <th>cantidad</th>
+                <th>restar</th>
+                <th>borrar</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -19,10 +23,24 @@
                 <td>{{ carro.producto }}</td>
                 <td>{{ carro.user }}</td>
                 <td>{{ carro.cantidad }}</td>
-            
+                <td>{{carro.cantidad * carro.price}}€</td>
+                <td><a href="/carro/less/{{carro.idp}}/{{app.user.id}}" >menos</a>
+                <td><a href="/carro/delete/{{carro.idp}}/{{app.user.id}}" >Eliminar</a>    
             </tr>
+            {% set total = total + carro.cantidad * carro.price %}
+            
         {% endfor %}
+            <tr>
+                <td>
+                <td>
+                <td>
+                <td>
+                <td>{{total}}
+            </tr>
         </tbody>
     </table>
-
+<a href="/carro/limpiar/{{app.user.id}}">Limpiar Carro</a>
+{% else %}
+    <h3>No hay ningun articulo en tu carrito</h3>
+{% endif %}
 {% endblock %}
