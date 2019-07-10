@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Gafas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>product</th>
+                <th>usuario</th>
+                <th>cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for carro in carros %}
+            <tr>
+                <td><a href="{{ path('gafas_show', { 'id': carro.id }) }}">{{ carro.id }}</a></td>
+                <td>{{ carro.producto }}</td>
+                <td>{{ carro.user }}</td>
+                <td>{{ carro.cantidad }}</td>
+            
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

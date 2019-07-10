@@ -13,12 +13,16 @@ use Symfony\Component\HttpFoundation\Response;
 class CarroController extends Controller
 {   
     /**
-     * @Route("/")
+     * @Route("/{user}")
      */
-    public function indexAction()
+    public function indexAction($user)
     {
-        return "Hola carrito";
-            // ...
+        $em = $this->getDoctrine()->getManager();
+        $carros = $em->getRepository('GafasBundle:Carro')
+        ->findBy(array('user'=>$user));
+        return $this->render('@Gafas/Carro/index.html.twig', array(
+            'carros'=>$carros,
+        ));
         
     }
 
@@ -28,12 +32,18 @@ class CarroController extends Controller
     public function addAction($id,$user)
     {
         $em = $this->getDoctrine()->getManager();
+        $carro = $em->getRepository('GafasBundle:Carro')
+        ->findOneBy(array('producto' => $id,'user'=>$user));
 
-        $carro=new Carro();
-        $carro->setProducto($id);
-        $carro->setUser($user);
-        $carro->setCantidad(1);
-
+        if($carro){
+            $carro->setCantidad($carro->getCantidad()+1);
+        }
+        else{
+            $carro = new Carro();
+            $carro->setProducto($id);
+            $carro->setUser($user);
+            $carro->setCantidad(1);
+        }
         $em->persist($carro);
         $em->flush();
         
