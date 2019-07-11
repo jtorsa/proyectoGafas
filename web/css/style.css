@@ -1,0 +1,181 @@
+body{
+    background:#DEDCDC;
+   
+}
+
+
+img{
+    height: 100%;
+    width: 100%;
+    border-width: 0.3em;
+    border-color: #DEDCDC;
+    border-style: solid;
+    margin:0px;
+}
+
+footer{
+    background-color: aqua;
+}
+
+thead{
+    background:grey;
+    width:100%;
+}
+.añadir{
+    border-style:solid;
+    border-color:grey;
+    color:grey;
+    border-width:3px;
+}
+.box{
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    background-color:#B2B2B2;
+    align-content:center;
+    padding:10vh;
+}
+
+
+.card{
+    margin: 0.5em;
+    background-color:blueviolet;
+    width: 30vh;
+    height: 45vh;
+}
+
+.cesta{
+    background:white;
+    margin:3vh;
+    padding:1vh;
+    width:80vw;
+}
+.compra{
+    background-color:white;    
+}
+
+.comprar{
+    background-color:red;
+    color:white;
+}
+
+.datos{
+    margin:1em;
+    flex:1;
+}
+.datos-precio{
+    background-color:white;
+}
+
+.header{
+    background-color: aqua;
+    height: 15vh;
+}
+
+
+.marca{
+    background-color:white;
+    margin:0,5vh;
+}
+
+.main{
+    background-color:  #DEDCDC;;
+    width: 80%;
+    flex: 1;
+}
+.main-body{
+    display: flex;
+    flex-flow: row wrap;
+}
+.menu{
+    background-color: white;
+    width: 20%;
+    color:grey;
+}
+
+.menu-cat{
+    text-align:center;
+    padding:2vh;
+}
+.menu-head{
+    width:100%;
+    height:10vh;
+    font-size:1.5em;
+    background-color:#FF5733;
+    color:white;
+}
+
+.promo{
+    display:flex;
+    flex-flow:row wrap;
+}
+.ofertas{
+    color:white;
+     background:red;
+     width:15vw;
+     height:5vw;
+     text-align:center;
+     padding-top:1.5vw;
+     margin:1vw 3vw 0vw 3vw;
+     align-items:center;
+     align-content:center;
+     min-width:130px;
+     min-height:40px;
+ }
+.opina{
+    font-size:0.7em;
+    color:grey;
+}
+.precio{
+    color:red;
+}
+.red{
+    color:red;
+}
+
+
+#logo{
+    border-width:0px;
+    margin:0px;
+    margin:0px;
+
+  }
+  @media (max-width: 62.3em) {
+  #logo{
+      display: none;
+  }
+}
+
+#timage{
+    width:15vh;
+}
+#tdatos{
+    width:20vw;
+}
+#tprecio{
+    width:15vh;
+}
+#tunidades{
+    width:15vh;
+}
+#ttotal{
+    width:15vh;
+}
+#tborrar{
+    width:10vw;
+}
+#interes{
+    margin:2vh;
+    padding:1vw;
+}
+
+
+.imagen{
+   
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+    padding: 0vw;
+    min-width:14vw;
+    min-height:14vw;
+}

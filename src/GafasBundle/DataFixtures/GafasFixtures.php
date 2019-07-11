@@ -12,7 +12,7 @@ class GafasFixtures extends Fixture
     {
         $faker = Factory::create();
 
-        for($i=0;$i<10;$i++){
+        for($i=0;$i<6;$i++){
         $gafa = new Gafas();
         $gafa->setModel($faker->unique()->word);
         $gafa->setCategory($faker->word());

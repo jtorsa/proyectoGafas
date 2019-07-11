@@ -3,67 +3,7 @@
 {% block title %}Gafas{% endblock %}
 {%block style%}
  <style type="text/css">
-       .box{
-            display: flex;
-            box-sizing: border-box;
-            flex-direction: row;
-            background-color: black;
-        }
-        .header{
-            background-color: aqua;
-            height: 15vh;
-        }
-        .menu{
-            background-color: white;
-            width: 20%;
-            color:grey;
-
-            }
-        .main{
-            background-color: grey;;
-            width: 80%;
-            flex: 1;
-        }
-        .main-body{
-            display: flex;
-            flex-flow: row wrap;
-        }
-        .card{
-            margin: 0.5em;
-            background-color:blueviolet;
-            width: 30vh;
-            height: 45vh;
-        }
-        .imagen{
-            height: 20vh;
-            width: 20vh;
-            
-            padding: 0.2em;
-        }
-        .menu-head{
-            width:100%;
-            height:10vh;
-            font-size:1.5em;
-            background-color:#FF5733;
-            color:white;
-        }
-        img{
-            height: 100%;
-            width: 100%;
-            border-width: 0.3em;
-            border-color: grey;
-            border-style: solid;
-        }
-        .menu-cat{
-            text-align:center;
-            padding:2vh;
-        }
-	footer{
-	    background-color: aqua;
-		}
-        .promo{
-            display:flex;
-        }
+  
         #shape {
   -webkit-clip-path: polygon(0 55%, 100% 0%, 100% 100%, 0% 100%);
   clip-path: polygon(0 55%, 100% 0%, 100% 100%, 0% 100%);
@@ -94,35 +34,32 @@
             </div>
             <div class="main">
                 <div class="main-head"><h1>Catalogo de Gafas</h1></div>
-                 <div class="promo">
+                 
+                <div id='shape'></div>  
+                <div class="promo">
                         <div class="ofertas">
-                            ofertas
+                            <b>OFERTAS</b>
                         </div>
-                        <div class="novedades">
-                            novedades
+                        <div class="ofertas">
+                            <b>NOVEDADES</b>
                         </div>
-                        <div class="promociones">
-                            promociones
+                        <div class="ofertas">
+                            <b>PROMOCIONES</b>
                         </div>
                 </div>
-                <div id='shape'></div>
-
                 <div class="main-body">
                   
                     {% for gafa in gafas %}
                     <div class="card">
-                        <div class="card-header">
-                            {{ gafa.model }}
-                        </div>
-                    <div class="card-body">
-                        <blockquote class="blockquote mb-0">
-                        <div class="imagen">
-                        <a href="detail/{{gafa.id}}">
-                            <img src="../img/{{gafa.image}}" ></a>
-                        </div>
-                        <p>{{ gafa.price}}€</p>
-                         <p>{{ gafa.categoria}}</p>
-                    </blockquote>
+                        <div class="card-body">
+                            <div class="imagen">
+                            <a href="detail/{{gafa.id}}">
+                                <img src="../img/{{gafa.image}}" ></a>
+                            </div>
+                            
+                            <p>{{ gafa.price}}€</p>
+                            <p>{{ gafa.categoria}}</p>
+                       
                     </div>
                 </div>
                 {% endfor %}

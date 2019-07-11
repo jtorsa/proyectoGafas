@@ -24,7 +24,12 @@ class CarroController extends Controller
         where c.producto = g.id
         and c.user = :user')->setParameter('user', $user);
         $carros= $query->getResult();
-
+        $long= count($carros);
+        $cantidad=0;
+        for($i=0;$i>$long;$i++){
+            $cantidad=$cantidad + $carros[$i]->getCantidad();
+           
+        }
         $query2 = $em->createQuery('SELECT  g
         FROM GafasBundle:Gafas g
         where g.id NOT IN (
@@ -36,7 +41,7 @@ class CarroController extends Controller
         $long= count($carros);
         
         return $this->render('@Gafas/Carro/index.html.twig', array(
-            'carros'=>$carros, 'total'=>0,'counter'=>$long,'productos'=>$productos
+            'carros'=>$carros, 'total'=>0,'cantidad'=>0,'productos'=>$productos
         ));
         
     }

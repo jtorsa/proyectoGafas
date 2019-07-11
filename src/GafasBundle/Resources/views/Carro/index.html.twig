@@ -1,53 +1,18 @@
 {% extends 'base.html.twig' %}
 {% block style %}
  <style type="text/css">
-    body{
-        background:grey;
-       
-    }
-    .cesta{
-        background:white;
-        margin:3vh;
-        padding:1vh;
-        width:80vw;
-    }
-    thead{
-        background:grey;
-        width:100%;
-    }
-    #timage{
-        width:15vh;
-    }
-    #tdatos{
-        width:20vw;
-    }
-    #tprecio{
-        width:15vh;
-    }
-    #tunidades{
-        width:15vh;
-    }
-    #ttotal{
-        width:15vh;
-    }
-    #tborrar{
-        width:10vw;
-    }
-    #interes{
-        margin:2vh;
-        padding:1vw;
-    }
-    img{
-        width:10vw;
-    }
+    
     </style>
  {% endblock %}
 {% block body %}
 <div class="cesta">
 {% if carros %}
 
+    {% for carro in carros %}
+     {% set cantidad = cantidad + carro.cantidad %}
+    {% endfor %}
     <h3>
-        ({{counter}})Articulos en <b>tu cesta</b>
+        ({{cantidad}})Articulos en <b>tu cesta</b>
     </h3>
     <table>
         <thead>
@@ -75,7 +40,7 @@
                 <td><a href="/carro/delete/{{carro.idp}}/{{app.user.id}}" >Eliminar</a>    
             </tr>
             {% set total = total + carro.cantidad * carro.price %}
-            {% set counter = counter +1 %}
+           
             
         {% endfor %}
             <tr>
