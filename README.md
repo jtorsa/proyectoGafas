@@ -1,3 +1,7 @@
+En la carpeta web he añadido la base de datos en un archivo .sql 
+para importarla y poder trabajar con ella 
+
+
 Symfony Standard Edition
 ========================
 
