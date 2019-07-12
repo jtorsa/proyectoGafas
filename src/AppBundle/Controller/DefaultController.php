@@ -29,7 +29,7 @@ class DefaultController extends Controller
             // 3) Encode the password (you could also do this via Doctrine listener)
             $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
-            $user->setRoles(array('ROLE_ADMIN'));
+            $user->setRoles(array('ROLE_USER'));
 
             // 4) save the User!
             $entityManager = $this->getDoctrine()->getManager();
