@@ -30,10 +30,11 @@
                 <div class="corazon">
                     <i class="fa fa-heart-o"></i>
                 </div>
+                {% if app.user %}
                 <div class="añadir">
                     <a href="/carro/add/{{gafa.id}}/{{app.user.id}}" ><button>Añadir al carrito</button></a>
-                    
                 </div>
+                {% endif %}
                 <div class="comprar"><b>COMPRAR</b></div>
             </div>
         </div>

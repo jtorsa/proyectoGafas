@@ -2,40 +2,38 @@
 
 {% block title %}Gafas{% endblock %}
 {%block style%}
- <style type="text/css">
-  
-        #shape {
-  -webkit-clip-path: polygon(0 55%, 100% 0%, 100% 100%, 0% 100%);
-  clip-path: polygon(0 55%, 100% 0%, 100% 100%, 0% 100%);
-  width:200px;
-  height:200px;
-  background-color:black;
-}
-    </style>
+
 {%endblock%}
 {%block  header%}
     <div class="header"> Esto es el header de las gafas</div>
 {%endblock%}
 {% block body %}
-               <div class="box">
-            <div class="menu">
-                <div class="menu-head">
-                     Esto es el menú
-                </div>
-                <div class="menu-body">
-                {% for categoria in categorias %}
-                     <div class="menu-cat">
-                     <a href="categoria/{{categoria.id}}">
-                        GAFAS GEEK {{categoria.name}}</a>
-                    </div>
-                 {%endfor%}
-                </div>
+    <div class="box">
+        
+        <div class="menu">
+        <div class="menu-head">
+                <b>TODAS LAS CATEGORIAS</b>
+        </div>
+        <div class="menu-body">
+        {% if categorias %}
+        {% for categoria in categorias %}
+                <div class="menu-cat">
+                <a href="categoria/{{categoria.id}}">
+                GAFAS GEEK {{categoria.name}}</a>
+            </div>
+            {%endfor%}
+        {% endif %}
+        </div>
                 
             </div>
             <div class="main">
-                <div class="main-head"><h1>Catalogo de Gafas</h1></div>
-                 
-                <div id='shape'></div>  
+                <div class="main-head">
+                    <h1>Catalogo de Gafas</h1></div>
+                
+                    <div class="banner1">
+                <div class="row banner">
+                </div>
+            </div>
                 <div class="promo">
                         <div class="ofertas">
                             <b>OFERTAS</b>
@@ -65,7 +63,7 @@
                 {% endfor %}
                 </div>
             </div>
-        </div> 
+ </div> 
 {% endblock %}
 {%block footer%}
     <footer>Esto es el footer</footer>      

@@ -31,22 +31,28 @@
                  {%endfor%}
                 </div>
                 
-            </div>
+            </div> 
             <div class="main">
-                <div class="main-head"><h1>Categoria: {{gafas[0].categoria}}</h1></div>
+                <div class="main-head">
+                {% if gafas %}
+                    <h1>Categoria: {{gafas[0].categoria}}</h1>
+                {% endif %}
+                </div>
+                <div class="banner1">
+                <div class="row banner">
+                </div>
+            </div>
                  <div class="promo">
                         <div class="ofertas">
                             ofertas
                         </div>
-                        <div class="novedades">
+                        <div class="ofertas">
                             novedades
                         </div>
-                        <div class="promociones">
+                        <div class="ofertas">
                             promociones
                         </div>
                 </div>
-                <div id='shape'></div>
-
                 <div class="main-body">
                   
                     {% for gafa in gafas %}

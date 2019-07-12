@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Gafa controller.
  *
- * @Route("admin/gafa")
+ * @Route("/admin/gafa")
  */
 class GafasController extends Controller
 {

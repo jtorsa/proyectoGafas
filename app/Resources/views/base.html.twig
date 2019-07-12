@@ -14,37 +14,36 @@
           {% endblock %}
     </head>
     <body>
-        
+        <div class="header">
                 <!--MENU DE NAVEGACION-->
-         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <!--<img src="{{asset('img/logo.png')}}" width="30" height="30" alt="">-->
-  </a>
-</nav>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+              <nav class="navbar navbar-expand-lg navbar-light bg-light header">
+        <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <!--<img src="{{asset('img/logo.png')}}" width="30" height="30" alt="">-->
+        </a>
+      </nav>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
 
-        <a class="nav-link" href="/"><img src="/img/geek.png" id="logo"></img></a>
-     
-      
-     
-    
-      
-    </ul>
-    
+           <a class="nav-link" href="/"><img src="/img/geek.png" id="logo"></img></a>
+
+           
+        </ul>
+        <form class="form-inline md-form form-sm mt-0 " id="busqueda">
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <input class="form-control form-control-sm ml-3 w-75 gris" type="text" placeholder=""
+                aria-label="Search">
+            </form>
       {% if app.user %}
            {% if app.user.Roles[0] == "ROLE_ADMIN" %}
-              <a href="/admin">Panel de Admin</a>
+              <a href="/admin"><i class="fa fa-user fa-2x"></i></a>
         {% endif %}
-       
-
-
-          <a class="nav-link" href="/carro/{{app.user.id}}"> <i class="fa fa-shopping-cart"></i></a>
+            
+          <a class="nav-link" href="/carro/{{app.user.id}}"> <i class="fa fa-shopping-cart fa-2x"></i></a>
           <a class="nav-link" href="/logout">LogOut</a>
     {% else %}
     
@@ -55,6 +54,7 @@
     {% endif %}
   </div>
 </nav>
+</header>
  
         {% block body %}          
 

@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Gafas list</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -19,7 +19,7 @@
                 <td><a href="{{ path('gafas_show', { 'id': gafa.id }) }}">{{ gafa.id }}</a></td>
                 <td>{{ gafa.model }}</td>
                 <td>{{ gafa.image }}</td>
-                <td>{{ gafa.price }}</td>
+                <td>{{ gafa.price }}€</td>
                 <td>
                     <ul>
                         <li>

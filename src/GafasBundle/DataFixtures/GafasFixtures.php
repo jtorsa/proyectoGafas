@@ -12,10 +12,10 @@ class GafasFixtures extends Fixture
     {
         $faker = Factory::create();
 
-        for($i=0;$i<6;$i++){
+        for($i=0;$i<7;$i++){
         $gafa = new Gafas();
         $gafa->setModel($faker->unique()->word);
-        $gafa->setCategory($faker->word());
+        $gafa->setCategoria($faker->numberBetween($min = 1, $max = 5));
         $gafa->setPrice($faker->randomFloat($nbMaxDecimals = 2, $min = 10, $max = 30));
         $gafa->setImage("gafa".$i.".jpg");
 

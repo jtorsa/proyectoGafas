@@ -27,6 +27,7 @@ class CategoriaController extends Controller
         return $this->render('@Gafas/Default/categoria.html.twig',['gafas'=>$categoria->getGafas(),'categorias'=>$categorias]);
     }
     
+    
 
 
 }

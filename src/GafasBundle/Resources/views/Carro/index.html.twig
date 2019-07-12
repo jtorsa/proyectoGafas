@@ -28,14 +28,16 @@
         <tbody>
         {% for carro in carros %}
             <tr>
-                <td><img src="/img/{{carro.imagen}}" ></td>
+                <td class="imagen-carro"><img src="/img/{{carro.imagen}}" ></td>
                 <td>{{ carro.producto }}</td>
                 <td>{{ carro.price }}</td>
-                <td>{{ carro.cantidad }}</td>
                 <td>
                     <a href="/carro/less/{{carro.idp}}/{{app.user.id}}" ><i class="fa fa-minus"></i></a>
-                    {{carro.cantidad * carro.price}}€
+                    {{ carro.cantidad }}
                     <a href="/carro/add/{{carro.idp}}/{{app.user.id}}" ><i class="fa fa-plus"></i></a>
+                </td>
+                <td>
+                    {{carro.cantidad * carro.price}}€ 
                 </td>
                 <td><a href="/carro/delete/{{carro.idp}}/{{app.user.id}}" >Eliminar</a>    
             </tr>
@@ -76,11 +78,13 @@
     {% for producto in productos %}
         
             <div class="col md-4">
-                <div class="row"><img src="/img/{{producto.image}}" ></div>
+                <div class="row imagen-carro"><img src="/img/{{producto.image}}" ></div>
                 <div class="row">{{producto.price}}</div>
                 <div class="row">
-                        <a href="/carro/add/{{producto.id}}/{{app.user.id}}" >Añadir al carrito</a></div>
-                
+                    <div class="red">
+                        <a class="rojo"href="/carro/add/{{producto.id}}/{{app.user.id}}" >Añadir al carrito</a>
+                    </div>
+                </div>
                 <div class="row">Alternativas</div>
             </div>        
        

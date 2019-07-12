@@ -1,8 +1,6 @@
 body{
-    background:#DEDCDC;
-   
+    background:#DEDCDC;  
 }
-
 
 img{
     height: 100%;
@@ -21,27 +19,44 @@ thead{
     background:grey;
     width:100%;
 }
+
 .añadir{
     border-style:solid;
     border-color:grey;
     color:grey;
     border-width:3px;
 }
+.banner{
+    height: 40vh;
+    width: 75%;
+    background-image: url("../img/banner.png");
+    background-size: none;
+}
+
+.banner1{
+    padding-left:10vh    
+}
+@media (max-width: 62.3em) {
+    .banner1{
+        display: none;
+    }
+  }
 .box{
     display: flex;
     box-sizing: border-box;
     flex-direction: row;
     background-color:#B2B2B2;
     align-content:center;
-    padding:10vh;
+    padding:5vh;
 }
-
 
 .card{
     margin: 0.5em;
     background-color:blueviolet;
-    width: 30vh;
-    height: 45vh;
+    width: 38vh;
+    height: 50vh;
+    min-width: 35vh;
+    
 }
 
 .cesta{
@@ -69,10 +84,28 @@ thead{
 
 .header{
     background-color: aqua;
-    height: 15vh;
+    height: 14vh;
+}
+.imagen{
+   
+    border-width: 5px;
+    border-color: black;
+    border-style: solid;
+    padding: 0vw;
+    min-width:14vw;
+    min-height:14vw;
+}
+.imagen-carro{
+    width: 20vh;
+    height: 20vh;
 }
 
+input[type="text"] {
 
+    background-color : #B2B2B2;
+    border-color: #B2B2B2;
+  
+  }
 .marca{
     background-color:white;
     margin:0,5vh;
@@ -100,9 +133,12 @@ thead{
 .menu-head{
     width:100%;
     height:10vh;
-    font-size:1.5em;
+    font-size:1em;
     background-color:#FF5733;
     color:white;
+    display: flex;
+    align-content: center;
+    align-items: center;
 }
 
 .promo{
@@ -130,10 +166,21 @@ thead{
     color:red;
 }
 .red{
-    color:red;
+    color:white;
+    background: red;
+}
+.rojo{
+    color:wheat;
 }
 
-
+#busqueda{
+    background: #B2B2B2;
+    height: 5vh;
+    align-content: center;
+    align-items: center;
+    width: 20vw;
+    border-radius:50px;
+}
 #logo{
     border-width:0px;
     margin:0px;
@@ -170,12 +217,3 @@ thead{
 }
 
 
-.imagen{
-   
-    border-width: 5px;
-    border-color: black;
-    border-style: solid;
-    padding: 0vw;
-    min-width:14vw;
-    min-height:14vw;
-}
